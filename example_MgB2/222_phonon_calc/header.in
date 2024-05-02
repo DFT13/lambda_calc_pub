@@ -1,0 +1,47 @@
+ &CONTROL
+! calculation = 'vc-relax' ,
+  calculation = 'scf' ,
+  restart_mode = 'from_scratch' ,
+  outdir = './tmp' ,
+  pseudo_dir = '/home/sci/lib/pslibrary.1.0.0/pbe/PSEUDOPOTENTIALS' ,
+  prefix = 'mgb2' 
+  etot_conv_thr=0.0001,
+  nstep = 120
+  tprnfor = .true.
+  tstress = .true.
+
+ /
+ &SYSTEM
+! assume_isolated = '2d' 
+  nosym = .true.
+  ibrav = 0,
+!  ibrav = 2,celldm(1) = 8.03972878341
+  nat = 24,
+  ntyp = 2,
+! nbnd = 17,
+  ecutwfc = 90.0 ,
+  ecutrho = 600.0 ,
+! occupations = 'tetrahedra_opt',
+  occupations = 'smearing' , degauss = 0.001 , smearing = 'gauss' ,
+! nspin = 2,  
+! starting_magnetization(1)=1.0,
+! starting_magnetization(2)=-1.0,
+! lda_plus_u = .true. ,
+! Hubbard_U(1) = 0 ,
+! Hubbard_U(2) = 0 ,
+ /
+ &ELECTRONS
+  conv_thr = 1.0e-7 ,
+  mixing_beta = 0.7 ,
+  electron_maxstep = 300 ,
+  mixing_mode = 'local-TF' ,
+  mixing_ndim = 12 ,
+ /
+!&IONS
+!ion_dynamics = 'bfgs'
+! /
+!&CELL
+!cell_dynamics = 'bfgs'
+! /
+K_POINTS automatic 
+ 24 24 24  0 0 0

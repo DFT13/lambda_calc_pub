@@ -1,0 +1,19 @@
+#!/bin/bash -l
+#SBATCH -p nodes
+#SBATCH -n 32
+#SBATCH --job-name=phonH3S
+
+module purge
+module add impi sci/dft sci/qe
+export MKL_NUM_THREADS=1
+
+#mpirun pw.x < H3S-001.in > H3S-001.out
+#mpirun pw.x < H3S-002.in > H3S-002.out
+
+for i in {001,002}
+do 
+mpirun pw.x -in MgB2-$i.in > MgB2-$i.out
+done
+
+#mpirun pw.x < TiN-001.in > TiN-001.out
+#mpirun pw.x < TiN-002.in > TiN-002.out
