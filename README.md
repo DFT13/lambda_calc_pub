@@ -7,3 +7,5 @@ Computationally cheap method to calculate electron-phonon coupling from frozen p
 4. Calculate the density of states of the unperturbed supercell
 5. Use the data-file-schema.xml output files from the QE calculations as inputs to lamda_calc_band_v0-2.py
 6. Run proc_lamda.sh with a window corresponding to the maximum phonon energy determined by phonopy
+
+Please cite our paper if using this code https://arxiv.org/abs/2405.02519
